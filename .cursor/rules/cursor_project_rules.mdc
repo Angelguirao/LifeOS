@@ -1,0 +1,123 @@
+---
+description: Apply these rules when creating the project
+globs:
+alwaysApply: true
+---
+## Project Overview
+
+*   **Type:** Life Operating System (Web-based)
+*   **Description:** A web-based Life Operating System that captures, processes, integrates, connects, and actively guides users toward a more meaningful life through AI and graph-based linking.
+*   **Primary Goal:** Empower lifelogging and quantified-self enthusiasts by transforming everyday experiences into a dynamic, actionable knowledge graph.
+
+## Project Structure
+
+### Framework-Specific Routing
+
+*   **Directory Rules:**
+
+    *   Next.js 14 (App Router): Follow `app/[route]/page.tsx` conventions for nested routing and server-side components.
+    *   Example 1: "Next.js 14 (App Router)" → `app/[route]/page.tsx` conventions
+    *   Note: Avoid mixing `pages/` directory patterns in App Router projects.
+
+### Core Directories
+
+*   **Versioned Structure:**
+
+    *   `app/api`: Next.js 14 API routes with route handlers for backend integration.
+    *   `src`: Domain logic, feature modules, and core application components.
+    *   `scripts`: CLI automation and development workflow scripts.
+    *   `infra`: Infrastructure configurations managed with Terraform/Pulumi.
+    *   `docs`: Structured project documentation, architectural decisions, and changelogs.
+    *   `ai`: AI prompt templates, LLM workflows, and integration configurations.
+
+### Key Files
+
+*   **Stack-Versioned Patterns:**
+
+    *   `app/dashboard/layout.tsx`: Next.js 14 root layout for dashboard components.
+    *   `app/auth/login/page.tsx`: Next.js 14 authentication flow leveraging server actions and Clerk Auth.
+    *   `src/routes/index.tsx`: Organized routing logic for modular and scalable feature development.
+
+## Tech Stack Rules
+
+*   **Version Enforcement:**
+
+    *   next@14: Enforce the use of the App Router (`app/` directory with nested route folders) and avoid legacy `getInitialProps` usage.
+    *   tailwindcss@latest: Utilize utility-first styling with purging of unused styles in production builds.
+    *   typescript@latest: Enforce strict type-checking with comprehensive linting and code consistency.
+    *   shadcn-ui: Maintain design consistency through component-driven development and adherence to design system guidelines.
+    *   supabase: Implement secure database interactions and edge function deployments.
+    *   clerk: Ensure secure authentication with role-based access and minimal front-end exposure.
+    *   openai: Comply with API usage guidelines, rate limits, and incorporate robust error handling.
+    *   pinecone: Structure vector data efficiently for scalable retrieval-augmented generation applications.
+
+## PRD Compliance
+
+*   **Non-Negotiable:**
+
+    *   "Leverage AI and graph-based linking to transform everyday experiences into a dynamic knowledge graph": Implement AI-enhanced insights and dynamic associative linking as a core functionality.
+
+## App Flow Integration
+
+*   **Stack-Aligned Flow:**
+
+    *   Next.js 14 Auth Flow → `app/auth/login/page.tsx` employs server actions and integrates with Clerk Auth for secure authentication.
+    *   Capture workflows are managed via API routes under `app/api` for integrating diverse data streams from emails, wearables, documents, and more.
+
+## Best Practices
+
+*   Next.js
+
+    *   Utilize the App Router for improved server-side rendering and routing clarity.
+    *   Maintain a strict separation between client and server components.
+    *   Follow consistent naming conventions and directory structures to enhance maintainability.
+
+*   Tailwind CSS
+
+    *   Leverage utility-first classes for rapid and responsive styling.
+    *   Configure purge settings to eliminate unused styles in production.
+    *   Adhere to mobile-first and responsive design principles.
+
+*   TypeScript
+
+    *   Enforce strict typing to minimize runtime errors.
+    *   Develop clear and descriptive type definitions and interfaces.
+    *   Integrate linting tools to enforce code quality and standards.
+
+*   Shadcn UI
+
+    *   Develop reusable components with a focus on design consistency.
+    *   Prioritize accessibility and semantic HTML in UI components.
+    *   Follow the established design system for cohesive styling.
+
+*   Supabase
+
+    *   Securely manage database connections and API keys.
+    *   Implement real-time data handling following best practices.
+    *   Ensure robust error logging and recovery mechanisms.
+
+*   Clerk Auth
+
+    *   Utilize secure, role-based authentication flows.
+    *   Minimize client-side exposure of sensitive authentication logic.
+    *   Regularly audit and monitor authentication sessions.
+
+*   OpenAI API
+
+    *   Implement stringent error handling and rate-limiting practices.
+    *   Securely manage API keys and usage metrics.
+    *   Monitor API consumption to optimize performance and cost.
+
+*   Pinecone
+
+    *   Organize vector data for efficient search and retrieval operations.
+    *   Monitor system performance and usage statistics closely.
+    *   Integrate seamlessly with AI outputs to enhance recommendation systems.
+
+## Rules
+
+*   Derive folder/file patterns directly from techStackDoc versions.
+*   If Next.js 14 App Router: Enforce `app/` directory with nested route folders.
+*   If Pages Router: Use `pages/*.tsx` flat structure.
+*   Mirror this logic for React Router, SvelteKit, and other frameworks.
+*   Never mix version patterns (e.g., no `pages/` in App Router projects).
