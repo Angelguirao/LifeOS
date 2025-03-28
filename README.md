@@ -1,145 +1,221 @@
-[![CodeGuide](/codeguide-backdrop.svg)](https://codeguide.dev)
+
+# LifeOS – Your Intelligent Life Operating System
+
+LifeOS is an open-source, AI-powered personal digital companion inspired by Gordon Bell’s pioneering *MyLifeBits* project. It seamlessly captures, integrates, analyzes, and visualizes personal data—transforming everyday experiences into meaningful insights and connections.
+
+> “There’s something deeply universal and human that leads every engineer to eventually conclude: ‘I need to serialize my life as an event stream dataset.’”
+
+LifeOS is built on that impulse: to structure the chaos, debug existence, and turn raw, messy life into something searchable, queryable, replayable—maybe even beautiful.
+
+<div align="center">
+  <img src="./lifeos_capture_diagram_small.png" alt="LifeOS Core" />
+</div>
+
+## 🌍 Project Vision
+
+LifeOS is not just a digital repository—it’s an **intelligent compass** that enhances self-awareness, encourages reflection, and helps users actively manage life's complexity.
+
+Through **AI, semantic graph relationships, and rich contextual metadata**, LifeOS becomes a *living knowledge network* that grows with you.
+
+## ✨ Core Features
+
+- **Multi-Modal Life Capture**  
+  Events, thoughts, actions, states, interactions, documents, chats, photos, and sensor data—all stored with rich metadata.
+
+- **File Upload & Storage**  
+  Upload eBooks, documents, images, audio, and link them to meaningful moments using S3-compatible storage (e.g., Supabase Storage, AWS S3, R2).
+
+- **AI-Powered Insight Engine**  
+  Using OpenAI + Pinecone, LifeOS generates summaries, detects patterns, and suggests associative links between moments and ideas.
+
+- **Dynamic Knowledge Graph**  
+  Events and objects (people, tools, places, ideas) are linked via typed, semantically meaningful relationships using Neo4j.
+
+- **Custom Visualizations**  
+  Navigate your timeline, emotion flows, and idea webs via D3.js, Chart.js, and intelligent graph views.
+
+- **Rich Contextual Modeling**  
+  Each event can track emotion, energy, attention, source (sensor/manual/AI), and be connected to sessions or threads.
+
+- **Privacy & Persona Layers**  
+  Define granular privacy scopes (Owner, Collaborator, Viewer) for data sharing and intelligent persona modeling.
+
+- **Secure & Compliant**  
+  End-to-end encryption (TLS 1.3, AES-256), GDPR-ready, and designed for future self-hosted sovereignty.
 
 
-# CodeGuide Starter Pro
+## 🧠 Architecture Overview
 
-A modern web application starter template built with Next.js 14, featuring authentication, database integration, and payment processing capabilities.
+LifeOS is built as a **modular system** with a **hybrid database model**, **clean backend architecture**, and optional future support for the **Model Context Protocol (MCP)**.
 
-## Tech Stack
+### 🧬 Architecture Diagram
 
-- **Framework:** [Next.js 14](https://nextjs.org/) (App Router)
-- **Authentication:** [Clerk](https://clerk.com/)
-- **Database:** [Supabase](https://supabase.com/)
-- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
-- **Payments:** [Stripe](https://stripe.com/)
-- **UI Components:** [shadcn/ui](https://ui.shadcn.com/)
+![LifeOS Architecture](./architecture.png)
 
-## Prerequisites
+### **Entity Storage**
+| Data Type | Storage |
+|-----------|---------|
+| Structured Objects (Users, People, Documents, Tags) | **PostgreSQL (via Supabase)** |
+| Flexible Event Stream (Thoughts, Metrics, Actions) | **MongoDB** |
+| Typed Relationships (caused_by, inspired_by, reflects_on) | **Neo4j** |
+| AI Embeddings & Semantic Search | **Pinecone** |
 
-Before you begin, ensure you have the following:
-- Node.js 18+ installed
-- A [Clerk](https://clerk.com/) account for authentication
-- A [Supabase](https://supabase.com/) account for database
-- A [Stripe](https://stripe.com/) account for payments (optional)
-- Generated project documents from [CodeGuide](https://codeguide.dev/) for best development experience
+### 🧬 Database Schema
 
-## Getting Started
+### 📊 Data Model Philosophy
 
-1. **Clone the repository**
-   ```bash
-   git clone <repository-url>
-   cd codeguide-starter-pro
-   ```
+LifeOS builds upon the vision of *MyLifeBits*, but introduces several core evolutions:
 
-2. **Install dependencies**
-   ```bash
-   npm install
-   # or
-   yarn install
-   # or
-   pnpm install
-   ```
+| Feature                  | **LifeOS**                                                   | **MyLifeBits**                                |
+|--------------------------|--------------------------------------------------------------|------------------------------------------------|
+| **Core Unit**            | `event` (lived experience, journaled, contextual)            | `resource` (file or media artifact)           |
+| **Schema Flexibility**   | Dynamic payloads per event type                              | Typed relational tables                        |
+| **Relationships**        | Typed, directional, with metadata (cause, reflection, etc.)  | Predefined bidirectional links                 |
+| **Narrative Modeling**   | Supports attention threads, transitions, sessions            | Collection-based groupings                     |
+| **Graph Backbone**       | Neo4j-backed semantic graph                                   | SQL-based link table                           |
+| **Context Awareness**    | Emotion, attention, energy, location                         | Largely absent                                 |
+| **AI Integration**       | Built-in inference, summarization, vector linking            | Mentioned as future extension                  |
 
-3. **Environment Variables Setup**
-   - Copy the `.env.example` file to `.env`:
-     ```bash
-     cp .env.example .env
-     ```
-   - Fill in the environment variables in `.env` (see Configuration section below)
+![LifeOS Event/Object Schema](./database_schema.png)
 
-4. **Start the development server**
-   ```bash
-   npm run dev
-   # or
-   yarn dev
-   # or
-   pnpm dev
-   ```
+In short, LifeOS treats your life not as a static archive but as a **semantic, narrative-rich, evolving stream of consciousness**—fueled by data and made meaningful through AI.
 
-5. **Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.**
+### 🤖 AI Processing
+- Serverless pipelines using **AWS Lambda / Step Functions**
+- Function calls to **OpenAI API** for summarization, classification, and link generation
+- Caching of recent inferences in **Redis**
 
-## Configuration
+---
 
-### Clerk Setup
-1. Go to [Clerk Dashboard](https://dashboard.clerk.com/)
-2. Create a new application
-3. Go to API Keys
-4. Copy the `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` and `CLERK_SECRET_KEY`
+## 🛠 Backend Architecture (MVC + MCP Ready)
 
-### Supabase Setup
-1. Go to [Supabase Dashboard](https://app.supabase.com/)
-2. Create a new project
-3. Go to Project Settings > API
-4. Copy the `Project URL` as `NEXT_PUBLIC_SUPABASE_URL`
-5. Copy the `anon` public key as `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+LifeOS uses a clean **MVC-style backend**, extended to support:
 
-### Stripe Setup (Optional)
-1. Go to [Stripe Dashboard](https://dashboard.stripe.com/)
-2. Get your API keys from the Developers section
-3. Add the required keys to your `.env` file
+- **Router → Controller → Service** layers for clean separation
+- A **Context** module passed through all operations (user, emotion, energy, attention, source)
+- Optional **Protocols** for orchestrating reusable workflows (journal reflection, file upload, event linking)
 
-## Environment Variables
+This makes it **MCP-compatible** in the future: enabling LifeOS to expose or consume standardized external data through **MCP clients and servers**.
 
-Create a `.env` file in the root directory with the following variables:
+```
+backend/
+  routes/
+  controllers/
+  services/
+  protocols/   # Orchestrators for AI/DB/file workflows
+  context/     # Context objects with attention, emotion, etc.
+  models/
+  mcp/         # Optional integration layer with external MCP
+```
+
+
+## 🧰 Tech Stack
+
+### **Frontend**
+- **Next.js 14** – Fast, scalable, SEO-friendly React framework.
+- **AI Integration**: [Vercel AI SDK](https://sdk.vercel.ai/)
+- **TypeScript** – Robust, type-safe development.
+- **Tailwind CSS** – Modern, responsive styling.
+- **Shadcn UI** – Prebuilt UI components for rapid design.
+
+### **Backend**
+- **Supabase (PostgreSQL)** – Structured entity storage and auth.
+- **MongoDB** – Flexible event and journaling data.
+- **Neo4j** – Graph database for semantic relationships.
+- **Redis** – Fast caching layer for insights, summaries, sessions.
+- **AWS Serverless** – Scalable compute via Lambda and Step Functions.
+- **OpenAI API & Pinecone (Vector DB)** – Advanced AI and semantic search.
+- **MCP-Ready Interfaces** – Future support for standardizing external AI integrations.
+
+### **Infrastructure**
+- **Turborepo** – Monorepo for managing frontend, backend, infra.
+- **Pulumi/Terraform** – Infrastructure-as-Code for reproducible deployment.
+- **GitHub Actions** – Automated CI/CD for build, test, deploy.
+
+---
+
+## 🚀 Getting Started
+
+Clone the repository and install dependencies:
+
+```bash
+git clone <repository-url>
+cd lifeos
+npm install
+npm run dev
+```
+
+Visit http://localhost:3000 to view the app.
+
+### ⚙️ Configuration
+
+Before running, create a `.env.local` file and add the following (adapt as needed):
 
 ```env
-# Clerk Authentication
-NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_publishable_key
-CLERK_SECRET_KEY=your_secret_key
-
 # Supabase
-NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+SUPABASE_URL=https://your-project.supabase.co
+SUPABASE_ANON_KEY=your_anon_key
+SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
 
-# Stripe (Optional)
-STRIPE_SECRET_KEY=your_stripe_secret_key
-NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=your_stripe_publishable_key
+# MongoDB
+MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/lifeos
+
+# Neo4j
+NEO4J_URI=bolt://localhost:7687
+NEO4J_USER=neo4j
+NEO4J_PASSWORD=your_password
+
+# Redis
+REDIS_URL=redis://localhost:6379
+
+# OpenAI
+OPENAI_API_KEY=your_openai_key
+
+# Pinecone
+PINECONE_API_KEY=your_pinecone_key
+PINECONE_ENVIRONMENT=your_project_env
 ```
 
-## Features
-
-- 🔐 Authentication with Clerk
-- 📦 Supabase Database
-- 💳 Stripe Payments Integration
-- 🎨 Modern UI with Tailwind CSS
-- 🚀 App Router Ready
-- 🔄 Real-time Updates
-- 📱 Responsive Design
-
-## Project Structure
+### 📦 Monorepo Structure (Turborepo)
 
 ```
-codeguide-starter/
-├── app/                # Next.js app router pages
-├── components/         # React components
-├── utils/             # Utility functions
-├── public/            # Static assets
-├── styles/            # Global styles
-├── documentation/     # Generated documentation from CodeGuide
-└── supabase/          # Supabase configurations and migrations
+apps/
+  web/         → Frontend (Next.js)
+  api/         → Serverless APIs (Supabase/AWS)
+  workers/     → Background jobs / ETL pipelines
+
+packages/
+  ui/          → Shared UI components
+  db/          → Shared types/schemas (Zod, Prisma, Mongoose)
+  utils/       → OpenAI, Pinecone, logging, etc.
 ```
 
-## Documentation Setup
 
-To implement the generated documentation from CodeGuide:
 
-1. Create a `documentation` folder in the root directory:
-   ```bash
-   mkdir documentation
-   ```
 
-2. Place all generated markdown files from CodeGuide in this directory:
-   ```bash
-   # Example structure
-   documentation/
-   ├── project_requirements_document.md             
-   ├── app_flow_document.md
-   ├── frontend_guideline_document.md
-   └── backend_structure_document.md
-   ```
+## 🔒 Privacy Notice
 
-3. These documentation files will be automatically tracked by git and can be used as a reference for your project's features and implementation details.
+LifeOS takes your privacy seriously. We:
+- Do not sell or share your personal information
+- Provide granular control over data sharing
+- Allow complete data export and deletion
+- Support self-hosting for maximum privacy
 
-## Contributing
+## 🤝 Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+We enthusiastically welcome contributions! Whether you're a seasoned developer or new to open source:
+
+- 🧩 **Features** – Implement new modules or visualizations
+- 🛠 **Fixes** – Report and squash bugs
+- 📚 **Docs** – Help document system design and usage patterns
+
+## 📜 License
+
+LifeOS is open-source software licensed under the MIT License.
+
+---
+
+Join us in building a meaningful digital legacy.  
+Let your life become a searchable, interpretable, and beautiful flow of information.
+
+**Welcome aboard!** 🚀
