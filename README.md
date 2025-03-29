@@ -11,6 +11,28 @@ LifeOS is built on that impulse: to structure the chaos, debug existence, and tu
   <img src="./lifeos_capture_diagram_small.png" alt="LifeOS Core" />
 </div>
 
+## 🌑 On the Uncomputable
+
+> “LifeOS is not just a system for computing life—it’s a system for testing the limits of what **cannot** be computed.”
+
+While LifeOS structures thoughts, logs events, and links ideas through semantic AI and databases, it also recognizes the existence of **uncomputable dimensions** of life.
+
+Inspired by philosophical critiques of computation, LifeOS holds space for:
+
+- **Analog life** — embodied sensations, moods, images, sounds
+- **Rational paradox** — ideas that contradict themselves or exceed logic
+- **Practical limits** — ambiguity, context collapse, missing data
+- **Indeterminacy** — entropy, chaos, affect, intuition, randomness
+
+Rather than ignoring these, LifeOS tries to **interface with them**. Through free-form journaling, emotional metadata, fuzzy AI linking, and time-based transitions, LifeOS allows *the unstructured and uncertain* to coexist alongside structured data.
+
+**This is not just software.**  
+It’s a **mirror** for self-awareness, and a **canvas** for lived experience—quantized, yes, but also messy, poetic, and irreducibly human.
+
+Let LifeOS be a memory system.  
+Let it also be an experiment in meaning.  
+In what can be computed—and what always escapes.
+
 ## 🌍 Project Vision
 
 LifeOS is not just a digital repository—it’s an **intelligent compass** that enhances self-awareness, encourages reflection, and helps users actively manage life's complexity.
@@ -84,6 +106,7 @@ In short, LifeOS treats your life not as a static archive but as a **semantic, n
 - Serverless pipelines using **AWS Lambda / Step Functions**
 - Function calls to **OpenAI API** for summarization, classification, and link generation
 - Caching of recent inferences in **Redis**
+- Semantic linking and retrieval using **Pinecone + Neo4j**
 
 ---
 
