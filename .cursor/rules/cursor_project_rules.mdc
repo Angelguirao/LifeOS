@@ -50,6 +50,31 @@ alwaysApply: true
     *   clerk: Ensure secure authentication with role-based access and minimal front-end exposure.
     *   openai: Comply with API usage guidelines, rate limits, and incorporate robust error handling.
     *   pinecone: Structure vector data efficiently for scalable retrieval-augmented generation applications.
+    *   mongodb: Implement event stream storage with proper indexing and aggregation pipelines.
+    *   neo4j: Structure graph relationships with efficient Cypher queries and APOC library usage.
+    *   redis: Configure caching with appropriate data structures and clustering setup.
+
+## Uncomputable Space Integration
+
+*   **Core Requirements:**
+
+    *   Implement interfaces for capturing analog life experiences
+    *   Support documentation of rational paradoxes
+    *   Handle ambiguity and context collapse gracefully
+    *   Provide space for indeterminacy and entropy
+
+## Hybrid Database Architecture
+
+*   **Integration Rules:**
+
+    *   Maintain consistency across all database systems
+    *   Implement proper fallback mechanisms
+    *   Structure data appropriately for each system:
+        *   Supabase: Structured data and real-time features
+        *   MongoDB: Event streams and flexible schemas
+        *   Neo4j: Knowledge graph and relationships
+        *   Redis: Caching and real-time features
+        *   Pinecone: Vector embeddings and similarity search
 
 ## PRD Compliance
 

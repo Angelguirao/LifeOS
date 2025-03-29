@@ -11,19 +11,22 @@ For the user interface and experience, we are using:
 - **TypeScript**: A programming language that adds extra safety to our code by catching errors early. It helps the developers maintain a high-quality codebase.
 - **Shadcn UI**: A set of pre-built interface components that ensure consistency and speed up the development process.
 
-These choices mean that LifeOS’s interface is not only modern and clean but also efficient, responsive, and easy to navigate for users from any background.
+These choices mean that LifeOS's interface is not only modern and clean but also efficient, responsive, and easy to navigate for users from any background.
 
 ## Backend Technologies
 
 LifeOS relies on powerful tools to manage data and support various functionalities. Our backend components include:
 
 - **Supabase (PostgreSQL)**: Provides our main database system that stores all user data in a secure and organized way. Supabase makes it easy to work with the database and supports real-time data streams.
+- **MongoDB**: Flexible event stream storage for thoughts, metrics, and actions.
+- **Neo4j**: Graph database for semantic relationships and typed connections between data.
 - **Supabase Edge Functions**: These allow us to extend our backend capabilities with server-side functions that run on the edge for quicker responses.
 - **Redis Caching**: A caching system that helps boost performance by storing frequently accessed data in memory, ensuring faster data retrieval.
 - **Clerk Auth**: Manages user authentication and secure login, ensuring that only authorized users can access the system.
 - **AI Integration**:
   - **OpenAI API**: Utilized for processing, analyzing, and deriving insights from user data like ebooks and documents using natural language processing (NLP).
   - **Pinecone (Vector DB)**: Serves as a vector database for supporting Retrieval-Augmented Generation (RAG), a powerful method enabling dynamic AI insights by working with large-scale data.
+- **MCP-Ready Architecture**: The backend is designed with Model Context Protocol compatibility in mind, enabling standardized data exchange and AI model integration.
 
 These backend technologies work together to capture diverse data sources, process them using AI, and store all information securely so that you receive powerful insights and fast responses.
 
@@ -51,7 +54,7 @@ LifeOS benefits from several external services that enhance its functionality wi
   - **Chart.js**: For rendering responsive and engaging charts and graphs.
   - **D3.js**: For more custom, dynamic data visualizations where needed.
 
-These third-party integrations mean you enjoy a seamless experience – whether you’re viewing your aggregated data or sharing insights with others.
+These third-party integrations mean you enjoy a seamless experience – whether you're viewing your aggregated data or sharing insights with others.
 
 ## Security and Performance Considerations
 

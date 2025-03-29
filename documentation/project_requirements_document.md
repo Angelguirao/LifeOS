@@ -20,19 +20,27 @@ The purpose of building LifeOS is to empower lifelogging and quantified-self ent
 - Implementation of custom personas with fine-grained privacy controls, enabling selective sharing with different user roles (Owner, Collaborator, Viewer).
 - A modular monolith architecture initially, with an eye towards a future transition to a hybrid serverless model when scalability demands increase.
 - Secure integration using standard protocols (TLS 1.3, AES-256) and GDPR-compliant data handling.
+- Multi-modal life capture including events, thoughts, actions, states, and interactions
+- Hybrid database model utilizing PostgreSQL, MongoDB, Neo4j, and Pinecone
+- Support for emotion tracking, energy levels, and attention metadata
+- Rich contextual modeling with typed, directional relationships
+- Optional Model Context Protocol (MCP) integration readiness
 
 **Out-of-Scope:**
 - Advanced custom AI model training or fine-tuning right out of the gate. The initial implementation will solely use off-the-shelf OpenAI models.
 - Native mobile apps; LifeOS will be built as a responsive web application initially.
 - Complete social media integration for sharing (extensions with external platforms like Facebook or LinkedIn will be considered later).
-- Complex, enterprise-level analytics dashboards beyond the user’s personal insights and tracking initially.
+- Complex, enterprise-level analytics dashboards beyond the user's personal insights and tracking initially.
 - Extensive custom branding design beyond a neutral modern look; detailed visual identity guidelines may be refined in later phases.
+- Complete implementation of the Model Context Protocol (MCP)
+- Complex emotion analysis beyond basic tracking
+- Advanced narrative generation features
 
 ---
 
 ## 3. User Flow
 
-When a new user arrives on LifeOS, they are greeted by a clean, minimalistic landing page that immediately communicates the platform's core benefits. They begin by registering with secure authentication powered by Clerk Auth, and during registration, they receive contextual guidance with brief tips outlining the platform’s value. Once signed up, users are ushered into an interactive onboarding process that includes guided tours and tutorial pop-ups, helping them set up personalized privacy settings, connect external accounts, and start configuring their knowledge graph.
+When a new user arrives on LifeOS, they are greeted by a clean, minimalistic landing page that immediately communicates the platform's core benefits. They begin by registering with secure authentication powered by Clerk Auth, and during registration, they receive contextual guidance with brief tips outlining the platform's value. Once signed up, users are ushered into an interactive onboarding process that includes guided tours and tutorial pop-ups, helping them set up personalized privacy settings, connect external accounts, and start configuring their knowledge graph.
 
 After the initial setup, users experience a smooth journey where LifeOS continuously integrates their data from emails, wearable devices, instant messages, ebooks, and other media. As the data accumulates, the AI processes and enriches it, creating dynamic associative links that can be explored via interactive dashboards and visualizations. Users can delve into their memory diaries, track personal trends, and access tailored recommendations, all while retaining complete control through customizable personas and granular privacy settings. The overall flow is designed to make data capture and insight discovery feel like a natural extension of everyday life.
 
@@ -75,9 +83,11 @@ After the initial setup, users experience a smooth journey where LifeOS continuo
   - Shadcn UI components for consistent UI elements.
 
 - **Backend & Database:**
-  - Supabase (PostgreSQL) for database management and backend functionality.
-  - Supabase Edge Functions for performing server-side operations.
-  - Redis caching to speed up data retrieval.
+  - Supabase (PostgreSQL) for structured entity storage
+  - MongoDB for flexible event stream and journaling data
+  - Neo4j for graph relationships and semantic linking
+  - Redis for caching insights, summaries, and sessions
+  - AWS Serverless (Lambda and Step Functions) for scalable compute
 
 - **Authentication:**
   - Clerk Auth for secure user authentication and management.
@@ -91,6 +101,12 @@ After the initial setup, users experience a smooth journey where LifeOS continuo
   - CI/CD pipeline using GitHub Actions.
   - Infrastructure-as-Code using Pulumi or Terraform.
   - IDE support with Cursor for AI-powered coding assistance.
+
+- **Architecture Pattern:**
+  - Clean MVC-style backend with Router → Controller → Service layers
+  - Context module for tracking user, emotion, energy, and attention
+  - Protocol layer for orchestrating reusable workflows
+  - MCP-ready interfaces for future standardization
 
 ---
 
@@ -147,5 +163,14 @@ After the initial setup, users experience a smooth journey where LifeOS continuo
   
 - **User Experience & Onboarding:**
   - Creating a balance between powerful features and user accessibility is challenging. The onboarding process must be seamless to avoid overwhelming users while ensuring they are aware of all functionalities.
+  
+- **Complexity of Emotional Data:**
+  - Capturing and representing emotional and contextual metadata accurately while maintaining user privacy and preventing misinterpretation.
+  
+- **Database Synchronization:**
+  - Managing consistency across the hybrid database model (PostgreSQL, MongoDB, Neo4j, Pinecone) may present challenges in data synchronization and integrity.
+  
+- **Uncomputable Aspects:**
+  - Balancing the structured, computable aspects of life with the unstructured, analog experiences that resist digitization.
   
 This detailed PRD should serve as the primary blueprint for all subsequent technical documents and guide the development of LifeOS without ambiguity.
