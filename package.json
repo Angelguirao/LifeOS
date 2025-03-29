@@ -1,12 +1,18 @@
 {
-  "name": "codeguide-starter-pro",
+  "name": "lifeos",
   "version": "0.1.0",
   "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "start": "turbo run start",
+    "lint": "turbo run lint",
+    "clean": "turbo run clean && rm -rf node_modules",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "dependencies": {
     "@clerk/nextjs": "^6.10.2",
@@ -50,15 +56,19 @@
     "framer-motion": "^12.0.5",
     "input-otp": "^1.4.2",
     "lucide-react": "^0.474.0",
+    "mongodb": "^6.5.0",
+    "neo4j-driver": "^5.18.0",
     "next": "^14.2.25",
     "next-themes": "^0.4.4",
     "openai": "^4.82.0",
+    "pinecone-client": "^2.0.0",
     "react": "^18",
     "react-day-picker": "^8.10.1",
     "react-dom": "^18",
     "react-hook-form": "^7.54.2",
     "react-resizable-panels": "^2.1.7",
     "recharts": "^2.15.0",
+    "redis": "^4.6.13",
     "sonner": "^1.7.2",
     "stripe": "^17.6.0",
     "tailwind-merge": "^2.6.0",
@@ -76,6 +86,7 @@
     "prettier": "^3.4.2",
     "prettier-plugin-tailwindcss": "^0.6.11",
     "tailwindcss": "^3.4.1",
+    "turbo": "^1.12.5",
     "typescript": "^5"
   }
 }

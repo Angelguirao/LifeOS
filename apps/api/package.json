@@ -1,0 +1,23 @@
+{
+  "name": "@lifeos/api",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "supabase functions serve",
+    "deploy": "supabase functions deploy",
+    "lint": "eslint .",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@lifeos/db": "workspace:*",
+    "@lifeos/ai": "workspace:*",
+    "@lifeos/utils": "workspace:*",
+    "@supabase/supabase-js": "^2.48.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "eslint": "^8",
+    "supabase": "^1.145.4",
+    "typescript": "^5"
+  }
+} 
