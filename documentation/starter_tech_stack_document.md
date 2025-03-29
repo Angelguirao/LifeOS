@@ -3,7 +3,7 @@
 This starter kit uses the following tech stack:
 
 1. **Core Framework and Runtime:**
-   - **Next.js 14.2.23**: The main framework used for building the application, providing server-side rendering, routing, and API capabilities
+   - **Next.js 14.2.25**: The main framework used for building the application, providing server-side rendering, routing, and API capabilities
      - Core Next.js configuration in `next.config.mjs`
      - API routes in `app/api/` directory
      - Middleware configuration in `middleware.ts`

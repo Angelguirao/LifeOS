@@ -65,7 +65,7 @@ function Hero() {
 
             <p className="max-w-2xl text-center text-lg leading-relaxed tracking-tight text-muted-foreground md:mt-8 md:text-xl">
               Start building with a modern web application template featuring authentication,
-              database integration, and payment processing. Built with Next.js 14, Clerk, Supabase,
+              database integration, and payment processing. Built with Next.js 15, Clerk, Supabase,
               and Stripe to accelerate your development process.
             </p>
           </div>

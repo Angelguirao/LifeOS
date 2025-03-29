@@ -135,7 +135,7 @@ backend/
 ## 🧰 Tech Stack
 
 ### **Frontend**
-- **Next.js 14** – Fast, scalable, SEO-friendly React framework.
+- **Next.js** – Fast, scalable, SEO-friendly React framework.
 - **AI Integration**: [Vercel AI SDK](https://sdk.vercel.ai/)
 - **TypeScript** – Robust, type-safe development.
 - **Tailwind CSS** – Modern, responsive styling.
