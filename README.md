@@ -1,19 +1,18 @@
-
 # LifeOS – Your Intelligent Life Operating System
 
-LifeOS is an open-source, AI-powered personal digital companion inspired by Gordon Bell’s pioneering *MyLifeBits* project. It seamlessly captures, integrates, analyzes, and visualizes personal data—transforming everyday experiences into meaningful insights and connections.
+LifeOS is an open-source, AI-powered personal digital companion inspired by Gordon Bell's pioneering *MyLifeBits* project. It seamlessly captures, integrates, analyzes, and visualizes personal data—transforming everyday experiences into meaningful insights and connections.
 
-> “There’s something deeply universal and human that leads every engineer to eventually conclude: ‘I need to serialize my life as an event stream dataset.’”
+> "There's something deeply universal and human that leads every engineer to eventually conclude: 'I need to serialize my life as an event stream dataset.'"
 
 LifeOS is built on that impulse: to structure the chaos, debug existence, and turn raw, messy life into something searchable, queryable, replayable—maybe even beautiful.
 
 <div align="center">
-  <img src="./lifeos_capture_diagram_small.png" alt="LifeOS Core" />
+  <img src="./docs/assets/lifeos_capture_diagram_small.png" alt="LifeOS Core" />
 </div>
 
 ## 🌑 On the Uncomputable
 
-> “LifeOS is not just a system for computing life—it’s a system for testing the limits of what **cannot** be computed.”
+> "LifeOS is not just a system for computing life—it's a system for testing the limits of what **cannot** be computed."
 
 While LifeOS structures thoughts, logs events, and links ideas through semantic AI and databases, it also recognizes the existence of **uncomputable dimensions** of life.
 
@@ -27,7 +26,7 @@ Inspired by philosophical critiques of computation, LifeOS holds space for:
 Rather than ignoring these, LifeOS tries to **interface with them**. Through free-form journaling, emotional metadata, fuzzy AI linking, and time-based transitions, LifeOS allows *the unstructured and uncertain* to coexist alongside structured data.
 
 **This is not just software.**  
-It’s a **mirror** for self-awareness, and a **canvas** for lived experience—quantized, yes, but also messy, poetic, and irreducibly human.
+It's a **mirror** for self-awareness, and a **canvas** for lived experience—quantized, yes, but also messy, poetic, and irreducibly human.
 
 Let LifeOS be a memory system.  
 Let it also be an experiment in meaning.  
@@ -35,7 +34,7 @@ In what can be computed—and what always escapes.
 
 ## 🌍 Project Vision
 
-LifeOS is not just a digital repository—it’s an **intelligent compass** that enhances self-awareness, encourages reflection, and helps users actively manage life's complexity.
+LifeOS is not just a digital repository—it's an **intelligent compass** that enhances self-awareness, encourages reflection, and helps users actively manage life's complexity.
 
 Through **AI, semantic graph relationships, and rich contextual metadata**, LifeOS becomes a *living knowledge network* that grows with you.
 
@@ -72,7 +71,7 @@ LifeOS is built as a **modular system** with a **hybrid database model**, **clea
 
 ### 🧬 Architecture Diagram
 
-![LifeOS Architecture](./architecture.png)
+![LifeOS Architecture](./docs/assets/architecture.png)
 
 ### **Entity Storage**
 | Data Type | Storage |
@@ -98,7 +97,7 @@ LifeOS builds upon the vision of *MyLifeBits*, but introduces several core evolu
 | **Context Awareness**    | Emotion, attention, energy, location                         | Largely absent                                 |
 | **AI Integration**       | Built-in inference, summarization, vector linking            | Mentioned as future extension                  |
 
-![LifeOS Event/Object Schema](./database_schema.png)
+![LifeOS Event/Object Schema](./docs/assets/database_schema.png)
 
 In short, LifeOS treats your life not as a static archive but as a **semantic, narrative-rich, evolving stream of consciousness**—fueled by data and made meaningful through AI.
 
@@ -213,8 +212,56 @@ packages/
   utils/       → OpenAI, Pinecone, logging, etc.
 ```
 
+## 🧪 Testing Strategy
 
+LifeOS implements a comprehensive testing strategy across multiple levels:
 
+### Unit Testing
+- Jest/Vitest for component and utility testing
+- React Testing Library for component testing
+- MSW for API mocking
+- Coverage requirements: 80%+ for critical paths
+
+### Integration Testing
+- API integration tests with supertest
+- Database integration with test containers
+- Event processing validation
+- Graph relationship verification
+
+### E2E Testing
+- Playwright for critical user journeys
+- Cypress for component/page testing
+- Cross-browser compatibility
+- Mobile responsiveness
+
+### Performance Testing
+- Load testing with k6
+- Performance monitoring
+- Memory leak detection
+- Database query optimization
+
+### Security Testing
+- OWASP compliance checks
+- Penetration testing
+- Authentication flow validation
+- Data encryption verification
+
+### CI/CD Pipeline
+- Automated testing on PR
+- Deployment gates
+- Environment-specific testing
+- Regression test suite
+
+```bash
+# Run unit tests
+pnpm test
+
+# Run E2E tests
+pnpm test:e2e
+
+# Run all tests with coverage
+pnpm test:coverage
+```
 
 ## 🔒 Privacy Notice
 

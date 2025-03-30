@@ -1,5 +1,5 @@
 {
-  "name": "@lifeos/ai",
+  "name": "@lifeos/aws",
   "version": "0.1.0",
   "private": true,
   "main": "./index.ts",
@@ -9,8 +9,10 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@pinecone-database/pinecone": "^1.1.2",
-    "openai": "^4.82.0"
+    "@aws-sdk/client-lambda": "^3.0.0",
+    "@aws-sdk/client-sfn": "^3.0.0",
+    "@lifeos/events": "workspace:*",
+    "@lifeos/utils": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^20",
